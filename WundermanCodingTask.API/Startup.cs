@@ -18,6 +18,10 @@ namespace WundermanCodingTask.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configure application to use sample data provided by DummyGizmoRepository.
+            // For most "real" applications, this would instead be configured to use a repository that pulls from some source like a database.
+            services.AddScoped<IGizmoRepository, DummyGizmoRepository>();
+
             services.AddControllers();
         }
 
