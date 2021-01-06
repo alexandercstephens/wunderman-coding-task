@@ -5,11 +5,11 @@ namespace WundermanCodingTask.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GizmoController : ControllerBase
+    public class GizmosController : ControllerBase
     {
         private readonly IGizmoRepository _repository;
 
-        public GizmoController(IGizmoRepository repository)
+        public GizmosController(IGizmoRepository repository)
         {
             _repository = repository;
         }

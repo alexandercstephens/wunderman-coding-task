@@ -25,7 +25,7 @@ namespace WundermanCodingTask.WebApplication
                     // Configure URL to be localhost URL pointing to the API project, served by IIS Express.
                     // Typically, in QA/prod, this would be configured to point to a real URL read from a configuration file.
                     // In development, this would point to a localhost URL (like it is here), or one might use a DummyGizmoResource for some development instead.
-                    "http://localhost:64829/gizmo",
+                    "http://localhost:64829/gizmos",
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
                     )
                 );
