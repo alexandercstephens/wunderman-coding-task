@@ -1,7 +1,26 @@
 ﻿@using WundermanCodingTask.WebApplication.Models
 @model IEnumerable<GizmoModel>
 
-@foreach (var gizmo in Model)
-{
-    <p>@gizmo.Name</p>
+<table class="gizmo-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Universe</th>
+            <th class="numeric">Approximate Weight (grams)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gizmo in Model)
+        {
+        <tr>
+            <td>@gizmo.Name</td>
+            <td>@gizmo.Universe</td>
+            <td class="numeric">@gizmo.ApproximateWeightInGrams</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+<link rel="stylesheet" href="~/gizmoTable.css" />
 }

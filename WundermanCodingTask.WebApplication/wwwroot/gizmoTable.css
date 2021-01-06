@@ -1,0 +1,8 @@
+﻿.gizmo-table th, .gizmo-table td {
+    padding: 4px;
+    text-align: left;
+}
+
+.gizmo-table th.numeric, .gizmo-table td.numeric {
+    text-align: right;
+}
