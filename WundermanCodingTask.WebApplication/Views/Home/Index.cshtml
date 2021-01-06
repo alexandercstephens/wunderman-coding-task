@@ -1,1 +1,7 @@
-﻿
+﻿@using WundermanCodingTask.WebApplication.Models
+@model IEnumerable<GizmoModel>
+
+@foreach (var gizmo in Model)
+{
+    <p>@gizmo.Name</p>
+}

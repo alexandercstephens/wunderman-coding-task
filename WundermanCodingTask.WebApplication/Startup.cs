@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Text.Json;
 
 namespace WundermanCodingTask.WebApplication
 {
@@ -18,6 +19,17 @@ namespace WundermanCodingTask.WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configure gizmos to be retrieved via HTTP, as specified in the requirements. 
+            services.AddScoped<IGizmoResource, HttpJsonGizmoResource>(
+                _ => new HttpJsonGizmoResource(
+                    // Configure URL to be localhost URL pointing to the API project, served by IIS Express.
+                    // Typically, in QA/prod, this would be configured to point to a real URL read from a configuration file.
+                    // In development, this would point to a localhost URL (like it is here), or one might use a DummyGizmoResource for some development instead.
+                    "http://localhost:64829/gizmo",
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+                    )
+                );
+
             services.AddControllersWithViews();
         }
 
